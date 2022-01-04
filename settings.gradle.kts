@@ -1,1 +1,1 @@
-rootProject.name = "spigot-gradle-kotlin-template"
+rootProject.name = "simplewarp"

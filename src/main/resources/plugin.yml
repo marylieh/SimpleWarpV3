@@ -1,6 +1,6 @@
 name: ExamplePlugin
 api-version: 1.16
 authors:
-  - Me
-main: com.example.exampleplugin
+  - ***REMOVED***
+main: me.***REMOVED***.simplewarp.SimpleWarp
 version: @version@
