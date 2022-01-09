@@ -1,14 +1,24 @@
-# Spigot Gradle Kotlin Template
-This is a template for creating a [Spigot Plugin](https://www.spigotmc.org/) with [Gradle](https://gradle.org) and the [Kotlin](https://kotlinlang.org) programming language.
+# SimpleWarp V3
 
-## How to use
-1. Click **Use this template**.
-2. Clone your version.
-3. Open the Folder in IntelliJ IDEA
-4. Rename group in **build.gradle.kts**
-5. Rename project name in **settings.gradle.kts**
+This repository contains the code for the SimpleWarp Minecraft server plugin. SimpleWarp allows you to create, delete and use 
+warp points. These points are some sort of waymarks, were the player can teleport.
 
-## License
-This template is licensed under the [MIT License](https://choosealicense.com/licenses/mit/)
+## Commands
 
-Copyright (c) 2020 NyCode
+* `/warp <warpname>` - *Teleport you to a warppoint.*
+* `/setwarp <warpname>` - *Create a warppoint.*
+* `/delwarp <warpname>` - *Delete a warppoint.*
+* `/warps` - *List all warppoints*
+* `/warpversion` - *Displays current plugin version*
+
+## Permissions
+
+* `simplewarp.warp` - Allows you to use the **/warp** command.
+* `simplewarp.delwarp` - Allows you to use the **/delwarp** command.
+* `simplewarp.setwarp` - Allows you to use the **/setwarp** command.
+* `simplewarp.warps` - Allows you to use the **/warps** command.
+
+## Planned Features
+
+* A position saving system.
+* An auto updater.
