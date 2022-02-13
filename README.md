@@ -7,6 +7,8 @@ The plugin has also a position saving feature. Positions are like warp points ex
 This feature is disabled by default.
 
 The Position system have to be enabled first in your warps.yml config file.
+
+[![CircleCI](https://circleci.com/gh/asmax15/SimpleWarpV3/tree/main.svg?style=shield)](https://circleci.com/gh/asmax15/SimpleWarpV3/tree/main)
 ## Commands
 
 * `/warp <warpname>` - *Teleport you to a warppoint.*
