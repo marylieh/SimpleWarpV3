@@ -14,7 +14,7 @@ class WarpsCommandExecutor : CommandExecutor {
             sender.sendMessage("${SimpleWarp.instance.prefix} §4Just a Player can execute this command!")
             return true
         }
-        var player: Player = sender
+        val player: Player = sender
 
         if (player.hasPermission("simplewarp.warps")) {
             player.sendMessage("${SimpleWarp.instance.prefix} ${Config.getConfig().getConfigurationSection(".Warps")?.getKeys(false)}")

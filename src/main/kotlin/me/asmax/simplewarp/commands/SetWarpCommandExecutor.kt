@@ -14,19 +14,19 @@ class SetWarpCommandExecutor : CommandExecutor {
             sender.sendMessage("${SimpleWarp.instance.prefix} §4Just a Player can execute this command!")
             return true
         }
-        var player: Player = sender
+        val player: Player = sender
 
         if (player.hasPermission("simplewarp.setwarp")) {
             if (args.size == 1) {
-                var id = args[0]
-                var world: String = player.world.name
+                val id = args[0]
+                val world: String = player.world.name
 
-                var x = player.location.x
-                var y = player.location.y
-                var z = player.location.z
+                val x = player.location.x
+                val y = player.location.y
+                val z = player.location.z
 
-                var yaw = player.location.yaw
-                var pitch = player.location.pitch
+                val yaw = player.location.yaw
+                val pitch = player.location.pitch
 
                 Config.getConfig().set(".Warps.${id}.World", world)
                 Config.getConfig().set(".Warps.${id}.X", x)
