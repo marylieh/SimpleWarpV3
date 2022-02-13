@@ -17,7 +17,7 @@ object Config {
             dir.mkdirs()
         }
 
-        this.file = File(dir, "config.yml")
+        this.file = File(dir, "Warps.yml")
 
         if (!file.exists()) {
             try {

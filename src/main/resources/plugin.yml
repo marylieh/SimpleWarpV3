@@ -1,6 +1,14 @@
-name: ExamplePlugin
+name: SimpleWarp
 api-version: 1.16
 authors:
   - ***REMOVED***
 main: me.***REMOVED***.simplewarp.SimpleWarp
 version: @version@
+
+commands:
+  setwarp:
+  delwarp:
+  warp:
+  warps:
+  warpversion:
+  position:

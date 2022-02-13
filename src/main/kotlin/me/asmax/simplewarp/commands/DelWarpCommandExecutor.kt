@@ -14,12 +14,12 @@ class DelWarpCommandExecutor : CommandExecutor {
             sender.sendMessage("${SimpleWarp.instance.prefix} §4Just a Player can execute this command!")
             return true
         }
-        var player: Player = sender
+        val player: Player = sender
 
         if (player.hasPermission("simplewarp.delwarp")) {
             if (args.size == 1) {
 
-                var id = args[0]
+                val id = args[0]
 
                 Config.getConfig().set(".Warps.$id", null)
                 Config.save()

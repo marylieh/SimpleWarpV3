@@ -4,7 +4,6 @@ import me.***REMOVED***.simplewarp.SimpleWarp
 import me.***REMOVED***.simplewarp.utils.Config
 import org.bukkit.Bukkit
 import org.bukkit.Location
-import org.bukkit.World
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -17,34 +16,26 @@ class WarpCommandExecutor : CommandExecutor {
             sender.sendMessage("${SimpleWarp.instance.prefix} §4Just a Player can execute this command!")
             return true
         }
-        var player: Player = sender
+        val player: Player = sender
 
         if (player.hasPermission("simplewarp.warp")) {
             if (args.size == 1) {
 
-                var id = args[0]
+                val id = args[0]
 
                 if (Config.getConfig().getString(".Warps.$id") == null) {
                     player.sendMessage("${SimpleWarp.instance.prefix} §cThis warp didn't exists!")
                     return true
                 }
 
-                var world = Config.getConfig().getString(".Warps.${id}.World")?.let { Bukkit.getWorld(it) }
+                val world = Bukkit.getWorld(Config.getConfig().getString(".Warps.${id}.World")!!)
 
-                var x = player.location.x
-                var y = player.location.y
-                var z = player.location.z
+                val x = Config.getConfig().getInt("Warps.${id}.X").toDouble()
+                val y = Config.getConfig().getInt("Warps.${id}.Y").toDouble()
+                val z = Config.getConfig().getInt("Warps.${id}.Z").toDouble()
 
-                var yaw = player.location.yaw
-                var pitch = player.location.pitch
-
-                Config.getConfig().set(".Warps.${id}.World", world)
-                Config.getConfig().set(".Warps.${id}.X", x)
-                Config.getConfig().set(".Warps.${id}.Y", y)
-                Config.getConfig().set(".Warps.${id}.Z", z)
-
-                Config.getConfig().set(".Warps.${id}.Yaw", yaw)
-                Config.getConfig().set(".Warps.${id}.Pitch", pitch)
+                val yaw = Config.getConfig().getInt("Warps.${id}.Yaw").toFloat()
+                val pitch = Config.getConfig().getInt("Warps.${id}.Pitch").toFloat()
 
                 player.teleport(Location(world, x, y, z, yaw, pitch))
                 player.sendMessage("${SimpleWarp.instance.prefix} §aYou have been teleported to §6$id§a!")
