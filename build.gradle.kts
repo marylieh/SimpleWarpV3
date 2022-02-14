@@ -55,6 +55,12 @@ fun getGitBranch(): String {
     return stdout.toString("UTF-8").trim()
 }
 
+configure<SourceSetContainer> {
+    named("main") {
+        java.srcDir("src/main/kotlin")
+    }
+}
+
 tasks {
     processResources {
         filter(FixCrLfFilter::class)
