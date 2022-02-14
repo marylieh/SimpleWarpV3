@@ -8,6 +8,8 @@ This feature is disabled by default.
 
 The Position system have to be enabled first in your warps.yml config file.
 
+The plugin also features an auto update System. This System downloads the newest version of the plugin automatically if a new version is available from [DevBukkit](http://bukkit.***REMOVED***.me).
+
 [![CircleCI](https://circleci.com/gh/***REMOVED***15/SimpleWarpV3/tree/main.svg?style=shield)](https://circleci.com/gh/***REMOVED***15/SimpleWarpV3/tree/main)
 ## Commands
 
@@ -35,4 +37,4 @@ The Position system have to be enabled first in your warps.yml config file.
 
 ## Planned Features
 
-* An auto updater.
+Feel free to submit your own ideas in the `issues` tab.
