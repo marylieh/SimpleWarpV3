@@ -3,12 +3,13 @@ package me.asmax.simplewarp
 import me.asmax.simplewarp.commands.*
 import me.asmax.simplewarp.commands.position.PositionCommandExecutor
 import me.asmax.simplewarp.utils.Config
+import me.asmax.simplewarp.utils.Updater
 import org.bukkit.plugin.java.JavaPlugin
 
 class SimpleWarp : JavaPlugin() {
 
     val prefix = "§6[SimpleWarp]"
-    val version = "B-3.2"
+    val version = "R-3.3"
 
     companion object {
         lateinit var instance: SimpleWarp
@@ -23,6 +24,8 @@ class SimpleWarp : JavaPlugin() {
     override fun onEnable() {
         registerCommands()
         initConfig()
+
+        val updater = Updater(this, 395393, this.file, Updater.UpdateType.DEFAULT, true)
     }
 
     override fun onDisable() {
