@@ -3,7 +3,7 @@ api-version: 1.16
 authors:
   - ***REMOVED***
 main: me.***REMOVED***.simplewarp.SimpleWarp
-version: 3.3
+version: 3.4
 
 commands:
   setwarp:
