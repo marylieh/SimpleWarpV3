@@ -1,4 +1,4 @@
-package me.***REMOVED***.simplewarp.utils
+package me.marylieh.simplewarp.utils
 
 import org.bukkit.configuration.InvalidConfigurationException
 import org.bukkit.configuration.file.YamlConfiguration
@@ -17,7 +17,7 @@ object Config {
             dir.mkdirs()
         }
 
-        this.file = File(dir, "Warps.yml")
+        file = File(dir, "Warps.yml")
 
         if (!file.exists()) {
             try {
@@ -27,7 +27,7 @@ object Config {
             }
         }
 
-        this.config = YamlConfiguration.loadConfiguration(file)
+        config = YamlConfiguration.loadConfiguration(file)
     }
 
     fun getConfig(): YamlConfiguration {

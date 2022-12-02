@@ -9,7 +9,7 @@ plugins {
     id("com.github.gmazzo.buildconfig") version "3.0.0"
 }
 
-group = "me.***REMOVED***.simplewarp"
+group = "me.marylieh.simplewarp"
 version = "1.0.0"
 
 repositories {

@@ -1,9 +1,9 @@
-package me.***REMOVED***.simplewarp
+package me.marylieh.simplewarp
 
-import me.***REMOVED***.simplewarp.commands.*
-import me.***REMOVED***.simplewarp.commands.position.PositionCommandExecutor
-import me.***REMOVED***.simplewarp.utils.Config
-import me.***REMOVED***.simplewarp.utils.Updater
+import me.marylieh.simplewarp.commands.*
+import me.marylieh.simplewarp.commands.position.PositionCommandExecutor
+import me.marylieh.simplewarp.utils.Config
+import me.marylieh.simplewarp.utils.Updater
 import org.bukkit.plugin.java.JavaPlugin
 
 class SimpleWarp : JavaPlugin() {

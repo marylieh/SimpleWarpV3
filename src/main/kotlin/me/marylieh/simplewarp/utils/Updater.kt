@@ -1,6 +1,6 @@
-package me.***REMOVED***.simplewarp.utils
+package me.marylieh.simplewarp.utils
 
-import me.***REMOVED***.simplewarp.utils.Updater.UpdateType
+import me.marylieh.simplewarp.utils.Updater.UpdateType
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.plugin.Plugin
 import org.bukkit.scheduler.BukkitRunnable
@@ -19,11 +19,11 @@ import java.util.zip.ZipFile
  * @version 2.4
  */
 class Updater(/* User-provided variables */ // Plugin running Updater
-    private val plugin: Plugin, // Project's Curse ID
-    private val id: Int, // The plugin file (jar)
-    private val file: File, // Type of update check to run
-    private val type: UpdateType, callback: UpdateCallback?, // Whether to announce file downloads
-    private val announce: Boolean
+              private val plugin: Plugin, // Project's Curse ID
+              private val id: Int, // The plugin file (jar)
+              private val file: File, // Type of update check to run
+              private val type: UpdateType, callback: UpdateCallback?, // Whether to announce file downloads
+              private val announce: Boolean
 ) {
     // The folder that downloads will be placed in
     private val updateFolder: File

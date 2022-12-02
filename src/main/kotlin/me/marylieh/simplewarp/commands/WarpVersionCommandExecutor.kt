@@ -1,6 +1,6 @@
-package me.***REMOVED***.simplewarp.commands
+package me.marylieh.simplewarp.commands
 
-import me.***REMOVED***.simplewarp.SimpleWarp
+import me.marylieh.simplewarp.SimpleWarp
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender

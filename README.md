@@ -8,9 +8,9 @@ This feature is disabled by default.
 
 The Position system have to be enabled first in your warps.yml config file.
 
-The plugin also features an auto update System. This System downloads the newest version of the plugin automatically if a new version is available from [DevBukkit](http://bukkit.***REMOVED***.me).
+The plugin also features an auto update System. This System downloads the newest version of the plugin automatically if a new version is available from [DevBukkit](https://dev.bukkit.org/).
 
-[![CircleCI](https://circleci.com/gh/***REMOVED***15/SimpleWarpV3/tree/main.svg?style=shield)](https://circleci.com/gh/***REMOVED***15/SimpleWarpV3/tree/main)
+[![CircleCI](https://circleci.com/gh/marylieh/SimpleWarpV3/tree/main.svg?style=shield)](https://circleci.com/gh/marylieh/SimpleWarpV3/tree/main)
 ## Commands
 
 * `/warp <warpname>` - *Teleport you to a warppoint.*

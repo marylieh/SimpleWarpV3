@@ -1,7 +1,7 @@
-package me.***REMOVED***.simplewarp.commands.position
+package me.marylieh.simplewarp.commands.position
 
-import me.***REMOVED***.simplewarp.SimpleWarp
-import me.***REMOVED***.simplewarp.utils.Config
+import me.marylieh.simplewarp.SimpleWarp
+import me.marylieh.simplewarp.utils.Config
 import net.kyori.adventure.text.Component
 import org.bukkit.Bukkit
 import org.bukkit.command.Command
