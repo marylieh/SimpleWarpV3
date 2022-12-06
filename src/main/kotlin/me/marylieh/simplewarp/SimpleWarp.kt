@@ -45,6 +45,8 @@ class SimpleWarp : JavaPlugin() {
         warpsCommand.setExecutor(WarpsCommandExecutor())
         warpVersionCommand.setExecutor(WarpVersionCommandExecutor())
         positionCommand.setExecutor(PositionCommandExecutor())
+        warpCommand.setTabCompleter(WarpTabCompleter())
+        delWarpCommand.setTabCompleter(WarpTabCompleter())
     }
 
     private fun initConfig() {

@@ -21,8 +21,14 @@ class WarpCommandExecutor : CommandExecutor {
         if (player.hasPermission("simplewarp.warp")) {
             if (args.size == 1) {
 
-                val id = args[0]
-
+                var id = args[0]
+                if (player.hasPermission("simplewarp.warps")) {
+                    val filtered = Config.getConfig().getConfigurationSection(".Warps")?.getKeys(false)?.filter{value -> value.lowercase().startsWith(args[0].lowercase())}
+                    if(filtered?.size != 1){
+                        player.sendMessage("${SimpleWarp.instance.prefix} §cThis warp didn't exists!")
+                        return true
+                    } else {id = filtered[0]}
+                }
                 if (Config.getConfig().getString(".Warps.$id") == null) {
                     player.sendMessage("${SimpleWarp.instance.prefix} §cThis warp didn't exists!")
                     return true
