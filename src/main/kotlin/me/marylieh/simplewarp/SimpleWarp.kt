@@ -25,7 +25,7 @@ class SimpleWarp : JavaPlugin() {
         registerCommands()
         initConfig()
 
-        val updater = Updater(this, 395393, this.file, Updater.UpdateType.DEFAULT, true)
+        if (Config.getConfig().getBoolean("auto-update")) {val updater = Updater(this, 395393, this.file, Updater.UpdateType.DEFAULT, true)}
     }
 
     override fun onDisable() {
@@ -49,9 +49,10 @@ class SimpleWarp : JavaPlugin() {
 
     private fun initConfig() {
         if (Config.getConfig().get("PositionSystem") == null) {
-            Config.getConfig().set("PositionSystem", false)
-            Config.save()
-        }
+            Config.getConfig().set("PositionSystem", false)}
+        if (Config.getConfig().get("auto-update") == null) {
+            Config.getConfig().set("auto-update", true)}
+        Config.save()
     }
 
 }
