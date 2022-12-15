@@ -3,11 +3,11 @@ package me.marylieh.simplewarp.commands
 import me.marylieh.simplewarp.SimpleWarp
 import me.marylieh.simplewarp.utils.Config
 import org.bukkit.command.Command
-import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
+import org.bukkit.command.TabExecutor
 
-class SetWarpCommandExecutor : CommandExecutor {
+class SetWarpCommand : TabExecutor {
 
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
         if (sender !is Player) {
@@ -47,5 +47,9 @@ class SetWarpCommandExecutor : CommandExecutor {
         }
 
         return true
+    }
+    
+    override fun onTabComplete(sender: CommandSender, command: Command, label: String, args: Array<out String>): MutableList<String>? {
+        return ArrayList<String>()
     }
 }

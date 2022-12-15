@@ -5,11 +5,11 @@ import me.marylieh.simplewarp.utils.Config
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.command.Command
-import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
+import org.bukkit.command.TabExecutor
 
-class WarpCommandExecutor : CommandExecutor {
+class WarpCommand : TabExecutor {
 
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
         if (sender !is Player) {
@@ -51,5 +51,16 @@ class WarpCommandExecutor : CommandExecutor {
             player.sendMessage("${SimpleWarp.instance.prefix} §cYou don't have the permission to do that!")
         }
         return true
+    }
+    
+    override fun onTabComplete(sender: CommandSender, command: Command, label: String, args: Array<out String>): MutableList<String>? {
+        val list = ArrayList<String>()
+        if (sender !is Player) return list
+        val player: Player = sender
+        if (player.hasPermission("simplewarp.warps")) {
+            val filtered = Config.getConfig().getConfigurationSection(".Warps")?.getKeys(false)?.filter{value -> value.lowercase().startsWith(args[0].lowercase())}
+            filtered?.forEach{list.add(it)}
+        }
+        return list
     }
 }

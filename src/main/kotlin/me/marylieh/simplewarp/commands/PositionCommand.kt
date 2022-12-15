@@ -1,15 +1,15 @@
-package me.marylieh.simplewarp.commands.position
+package me.marylieh.simplewarp.commands
 
 import me.marylieh.simplewarp.SimpleWarp
 import me.marylieh.simplewarp.utils.Config
 import net.kyori.adventure.text.Component
 import org.bukkit.Bukkit
 import org.bukkit.command.Command
-import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
+import org.bukkit.command.TabExecutor
 
-class PositionCommandExecutor : CommandExecutor {
+class PositionCommand : TabExecutor {
 
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
         if (sender !is Player) {
@@ -106,5 +106,9 @@ class PositionCommandExecutor : CommandExecutor {
             player.sendMessage("${SimpleWarp.instance.prefix} Invalid Argument, please use one of the following arguments: §c/position <list | position | del>")
         }
         return true
+    }
+    
+    override fun onTabComplete(sender: CommandSender, command: Command, label: String, args: Array<out String>): MutableList<String>? {
+        return ArrayList<String>()
     }
 }
