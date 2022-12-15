@@ -30,8 +30,8 @@ The plugin also features an auto update System. This System downloads the newest
 * `simplewarp.setwarp` - Allows you to use the **/setwarp** command.
 * `simplewarp.warps` - Allows you to use the **/warps** command.
 * `simplewarp.position` - Allows you to use the **/position** command.
-* `simplewarp.position.view` - Allows you to use the **/position \<name>** command.
-* `simplewarp.position.create` - Allows you to use the **/position \<name>**
+* `simplewarp.position.get` - Allows you to use the **/position get \<name>** command.
+* `simplewarp.position.add` - Allows you to use the **/position add \<name>**
 * `simplewarp.position.del` - Allows you to use the **/position del \<name>**
 * `simplewarp.position.list` - Allows you to use the **/position list**
 
