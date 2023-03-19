@@ -9,7 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin
 class SimpleWarp : JavaPlugin() {
 
     val prefix = "§6[SimpleWarp]"
-    val version = "R-3.5"
+    val version = "B-3.6"
 
     companion object {
         lateinit var instance: SimpleWarp
@@ -54,6 +54,8 @@ class SimpleWarp : JavaPlugin() {
             Config.getConfig().set("PositionSystem", false)}
         if (Config.getConfig().get("auto-update") == null) {
             Config.getConfig().set("auto-update", true)}
+        if (Config.getConfig().get("PlayerWarpsOnly") == null) {
+            Config.getConfig().set("PlayerWarpsOnly", false)}
         Config.save()
     }
 

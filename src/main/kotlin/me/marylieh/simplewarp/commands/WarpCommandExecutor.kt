@@ -21,15 +21,29 @@ class WarpCommandExecutor : CommandExecutor {
         if (player.hasPermission("simplewarp.warp")) {
             if (args.size == 1) {
 
-                var id ="";
+                var id =""
                 if (player.hasPermission("simplewarp.warps")) {
                     val filtered = Config.getConfig().getConfigurationSection(".Warps")?.getKeys(false)?.filter{value -> value.lowercase().startsWith(args[0].lowercase())}
                     if(filtered?.size == 1){id = filtered[0]}
                 } 
                 if(id==""){id = args[0]}
                 if (Config.getConfig().getString(".Warps.$id") == null) {
-                    player.sendMessage("${SimpleWarp.instance.prefix} §cThis warp didn't exists!")
+                    player.sendMessage("${SimpleWarp.instance.prefix} §cThis warp doesn't exists!")
                     return true
+                }
+
+                if (Config.getConfig().get("PlayerWarpsOnly") == null) {
+                    Config.getConfig().set("PlayerWarpsOnly", false)
+                    println("Old Version of Config detected! Setting PlayerWarpsOnly to false!")
+                    Config.save()
+                }
+
+                if (Config.getConfig().getBoolean("PlayerWarpsOnly")) {
+                    println(Config.getConfig().getBoolean("PlayerWarpsOnly"))
+                    if (Config.getConfig().getString(".Warps.${id}.Owner") != player.uniqueId.toString()) {
+                        player.sendMessage("${SimpleWarp.instance.prefix} §cYou don't have the permission to do that!")
+                        return true
+                    }
                 }
 
                 val world = Bukkit.getWorld(Config.getConfig().getString(".Warps.${id}.World")!!)

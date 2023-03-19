@@ -17,6 +17,13 @@ class SetWarpCommandExecutor : CommandExecutor {
         val player: Player = sender
 
         if (player.hasPermission("simplewarp.setwarp")) {
+
+            if (Config.getConfig().get("PlayerWarpsOnly") == null) {
+                Config.getConfig().set("PlayerWarpsOnly", false)
+                println("Old Version of Config detected! Setting PlayerWarpsOnly to false!")
+                Config.save()
+            }
+
             if (args.size == 1) {
                 val id = args[0]
                 val world: String = player.world.name
@@ -35,6 +42,8 @@ class SetWarpCommandExecutor : CommandExecutor {
 
                 Config.getConfig().set(".Warps.${id}.Yaw", yaw)
                 Config.getConfig().set(".Warps.${id}.Pitch", pitch)
+
+                Config.getConfig().set(".Warps.${id}.Owner", player.uniqueId.toString())
 
                 player.sendMessage("${SimpleWarp.instance.prefix} §aYou successfully set the Warp §6${id}§a!")
 
