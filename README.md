@@ -35,6 +35,8 @@ The plugin also features an auto update System. This System downloads the newest
 * `simplewarp.position.del` - Allows you to use the **/position del \<name>**
 * `simplewarp.position.list` - Allows you to use the **/position list**
 
+*To give the permissions to players you need a Permission System like [LuckPerms](https://luckperms.net/).*
+
 ## Planned Features
 
 Feel free to submit your own ideas in the `issues` tab.
