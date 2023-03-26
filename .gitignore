@@ -35,6 +35,9 @@ gradle-app.setting
 # BlueJ files
 *.ctxt
 
+# Apple DS_STORE files
+.DS_Store
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
