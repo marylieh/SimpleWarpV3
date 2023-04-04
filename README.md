@@ -10,6 +10,11 @@ The Position system have to be enabled first in your warps.yml config file.
 
 The plugin also features an auto update System. This System downloads the newest version of the plugin automatically if a new version is available from [DevBukkit](https://dev.bukkit.org/).
 
+
+The plugin now also features a "per-warp-permission System". 
+That means if you enable "RequirePermissionForEachWarp" in your Warps.yml Config, every Warp Point gets an individual Permission that follows this scheme: "simplewarp.warp.WARPNAME". 
+(You have to replace WARPNAME with the exact name of your warp point). Only players with the correct permissions can see and use the warp points.
+
 [![CircleCI](https://circleci.com/gh/marylieh/SimpleWarpV3/tree/main.svg?style=shield)](https://circleci.com/gh/marylieh/SimpleWarpV3/tree/main)
 ## Commands
 
