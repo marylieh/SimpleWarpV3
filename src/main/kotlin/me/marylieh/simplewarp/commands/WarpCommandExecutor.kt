@@ -46,6 +46,19 @@ class WarpCommandExecutor : CommandExecutor {
                     }
                 }
 
+                if (Config.getConfig().get("RequirePermissionForEachWarp") == null) {
+                    Config.getConfig().set("RequirePermissionForEachWarp", false)
+                    println("Old Version of Config detected! Setting RequirePermissionForEachWarp to false!")
+                    Config.save()
+                }
+
+                if (Config.getConfig().getBoolean("RequirePermissionForEachWarp")) {
+                    if (!player.hasPermission("simplewarp.warp.$id")) {
+                        player.sendMessage("${SimpleWarp.instance.prefix} §cYou don't have the permission to do that!")
+                        return true
+                    }
+                }
+
                 val world = Bukkit.getWorld(Config.getConfig().getString(".Warps.${id}.World")!!)
 
                 val x = Config.getConfig().getInt("Warps.${id}.X").toDouble()
