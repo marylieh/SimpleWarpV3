@@ -10,7 +10,7 @@ The Position system have to be enabled first in your warps.yml config file.
 
 The plugin also features an auto update System. This System downloads the newest version of the plugin automatically if a new version is available from [DevBukkit](https://dev.bukkit.org/).
 
-#### If you need any assistance or if you have a Feature suggestion, write us an E-Mail to [support@marylieh.social](mailto:support@marylieh.social), we'd love to here from you :) 
+#### If you need any assistance or if you have a Feature suggestion, write me an E-Mail at [support@marylieh.social](mailto:support@marylieh.social), I'd love to hear from you :)
 
 
 The plugin now also features a "per-warp-permission System". 
