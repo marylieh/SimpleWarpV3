@@ -10,6 +10,8 @@ The Position system have to be enabled first in your warps.yml config file.
 
 The plugin also features an auto update System. This System downloads the newest version of the plugin automatically if a new version is available from [DevBukkit](https://dev.bukkit.org/).
 
+#### If you need any assistance or if you have a Feature suggestion, write us an E-Mail to [support@marylieh.social](mailto:support@marylieh.social), we'd love to here from you :) 
+
 
 The plugin now also features a "per-warp-permission System". 
 That means if you enable "RequirePermissionForEachWarp" in your Warps.yml Config, every Warp Point gets an individual Permission that follows this scheme: "simplewarp.warp.WARPNAME". 
