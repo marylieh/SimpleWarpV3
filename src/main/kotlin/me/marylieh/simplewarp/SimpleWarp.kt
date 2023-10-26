@@ -2,14 +2,18 @@ package me.marylieh.simplewarp
 
 import me.marylieh.simplewarp.commands.*
 import me.marylieh.simplewarp.commands.position.PositionCommandExecutor
+import me.marylieh.simplewarp.listener.PlayerJoinListener
 import me.marylieh.simplewarp.utils.Config
+import me.marylieh.simplewarp.utils.PermissionFile
 import me.marylieh.simplewarp.utils.Updater
+import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
+import java.util.logging.Level
 
 class SimpleWarp : JavaPlugin() {
 
     val prefix = "§6[SimpleWarp]"
-    val version = "R-3.7"
+    val version = "R-3.8"
 
     companion object {
         lateinit var instance: SimpleWarp
@@ -18,18 +22,26 @@ class SimpleWarp : JavaPlugin() {
 
     override fun onLoad() {
         Config.Config()
+        PermissionFile.Permission()
         instance = this
     }
 
     override fun onEnable() {
         registerCommands()
         initConfig()
+        initDefaultPermissions()
+        registerListener()
 
         if (Config.getConfig().getBoolean("auto-update")) {val updater = Updater(this, 395393, this.file, Updater.UpdateType.DEFAULT, true)}
+
+        if (Bukkit.getOnlinePlayers().isNotEmpty()) {
+            Bukkit.getLogger().log(Level.WARNING, "$prefix It looks like the Server reloaded, this is not recommended. Please restart instead. SimpleWarp $version might not work as expected.")
+        }
     }
 
     override fun onDisable() {
         Config.save()
+        PermissionFile.savePermissions()
     }
 
     private fun registerCommands() {
@@ -49,6 +61,15 @@ class SimpleWarp : JavaPlugin() {
         delWarpCommand.setTabCompleter(WarpTabCompleter())
     }
 
+    private fun registerListener() {
+        val pluginManager = Bukkit.getPluginManager()
+
+        if (Config.getConfig().getBoolean("DefaultPermissions")) {
+            pluginManager.registerEvents(PlayerJoinListener(), this)
+            Bukkit.getLogger().log(Level.INFO, "The Following default permissions will be set for each player: ${PermissionFile.getFile().getList("DefaultPermissions")}")
+        }
+    }
+
     private fun initConfig() {
         if (Config.getConfig().get("PositionSystem") == null) {
             Config.getConfig().set("PositionSystem", false)}
@@ -59,7 +80,18 @@ class SimpleWarp : JavaPlugin() {
         if (Config.getConfig().get("RequirePermissionForEachWarp") == null) {
             Config.getConfig().set("RequirePermissionForEachWarp", false)
         }
+        if (Config.getConfig().get("DefaultPermissions") == null) {
+            Config.getConfig().set("DefaultPermissions", false)
+        }
         Config.save()
+    }
+
+    private fun initDefaultPermissions() {
+        val defaultPermissionsList: List<String> = listOf("ThisCouldBeYourDefaultPermission", "MakeSureToEditThisBeforeEnablingDefaultPermissions")
+        if (PermissionFile.getFile().get("DefaultPermissions") == null) {
+            PermissionFile.getFile().set("DefaultPermissions", defaultPermissionsList)
+        }
+        PermissionFile.savePermissions()
     }
 
 }
