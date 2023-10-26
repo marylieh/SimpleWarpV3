@@ -7,7 +7,6 @@ import me.marylieh.simplewarp.utils.Config
 import me.marylieh.simplewarp.utils.PermissionFile
 import me.marylieh.simplewarp.utils.Updater
 import org.bukkit.Bukkit
-import org.bukkit.plugin.PluginManager
 import org.bukkit.plugin.java.JavaPlugin
 import java.util.logging.Level
 
