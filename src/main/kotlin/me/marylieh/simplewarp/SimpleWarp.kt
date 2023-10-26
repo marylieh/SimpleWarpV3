@@ -9,7 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin
 class SimpleWarp : JavaPlugin() {
 
     val prefix = "§6[SimpleWarp]"
-    val version = "R-3.7"
+    val version = "R-3.8"
 
     companion object {
         lateinit var instance: SimpleWarp
