@@ -1,3 +1,4 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import org.apache.commons.io.output.ByteArrayOutputStream
 import org.apache.tools.ant.filters.FixCrLfFilter
 import org.apache.tools.ant.filters.ReplaceTokens
@@ -23,9 +24,7 @@ dependencies {
     compileOnly("com.destroystokyo.paper", "paper-api", "$minecraft_version-R0.1-SNAPSHOT")
 
     // Add your dependencies here
-    // Examples
-    // implementation("io.ktor", "ktor-client", "1.4.0") // Would be shaded into the final jar
-    // compileOnly("io.ktor", "ktor-client", "1.4.0") // Only used on compile time
+    implementation("org.bstats", "bstats-bukkit", "3.0.2")
 }
 
 buildConfig {
@@ -70,6 +69,9 @@ tasks {
     jar {
         // Disabled, because we use the shadowJar task for building our jar
         enabled = false
+    }
+    shadowJar {
+        relocate("org.bstats", "me.marylieh.simplewarp")
     }
     build {
         dependsOn(shadowJar)

@@ -44,7 +44,7 @@ jobs:
 
       # run tests!
       - run: gradle test
-      - run: 
+      - run:
           name: Creating Artifacts
           command: gradle build
 

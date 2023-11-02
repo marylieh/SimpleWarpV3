@@ -6,6 +6,7 @@ import me.marylieh.simplewarp.listener.PlayerJoinListener
 import me.marylieh.simplewarp.utils.Config
 import me.marylieh.simplewarp.utils.PermissionFile
 import me.marylieh.simplewarp.utils.Updater
+import org.bstats.bukkit.Metrics
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 import java.util.logging.Level
@@ -13,7 +14,8 @@ import java.util.logging.Level
 class SimpleWarp : JavaPlugin() {
 
     val prefix = "§6[SimpleWarp]"
-    val version = "R-3.8"
+    val version = "R-3.9"
+    private val pluginId: Int = 20196
 
     companion object {
         lateinit var instance: SimpleWarp
@@ -32,7 +34,11 @@ class SimpleWarp : JavaPlugin() {
         initDefaultPermissions()
         registerListener()
 
+        // Initialize Auto Updater
         if (Config.getConfig().getBoolean("auto-update")) {val updater = Updater(this, 395393, this.file, Updater.UpdateType.DEFAULT, true)}
+
+        // Initialize bstats Metrics
+        val metrics = Metrics(this, pluginId)
 
         if (Bukkit.getOnlinePlayers().isNotEmpty()) {
             Bukkit.getLogger().log(Level.WARNING, "$prefix It looks like the Server reloaded, this is not recommended. Please restart instead. SimpleWarp $version might not work as expected.")
