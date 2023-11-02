@@ -24,7 +24,7 @@ dependencies {
     compileOnly("com.destroystokyo.paper", "paper-api", "$minecraft_version-R0.1-SNAPSHOT")
 
     // Add your dependencies here
-    compileOnly("org.bstats", "bstats-bukkit", "3.0.2")
+    implementation("org.bstats", "bstats-bukkit", "3.0.2")
 }
 
 buildConfig {
