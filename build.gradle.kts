@@ -71,9 +71,6 @@ tasks {
         enabled = false
     }
     shadowJar {
-        dependencies {
-            include("org.bstats")
-        }
         relocate("org.bstats", "me.marylieh.simplewarp")
     }
     build {
