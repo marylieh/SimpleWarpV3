@@ -71,7 +71,7 @@ tasks {
         enabled = false
     }
     shadowJar {
-        relocate("org.bstats", "me.marylieh")
+        relocate("org.bstats", "me.marylieh.simplewarp")
     }
     build {
         dependsOn(shadowJar)
