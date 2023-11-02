@@ -4,6 +4,7 @@ import me.marylieh.simplewarp.commands.*
 import me.marylieh.simplewarp.commands.position.PositionCommandExecutor
 import me.marylieh.simplewarp.listener.PlayerJoinListener
 import me.marylieh.simplewarp.utils.Config
+import me.marylieh.simplewarp.utils.Metrics
 import me.marylieh.simplewarp.utils.PermissionFile
 import me.marylieh.simplewarp.utils.Updater
 import org.bukkit.Bukkit
@@ -13,7 +14,8 @@ import java.util.logging.Level
 class SimpleWarp : JavaPlugin() {
 
     val prefix = "§6[SimpleWarp]"
-    val version = "R-3.8"
+    val version = "R-3.9"
+    val pluginId: Int = 20196
 
     companion object {
         lateinit var instance: SimpleWarp
@@ -31,6 +33,7 @@ class SimpleWarp : JavaPlugin() {
         initConfig()
         initDefaultPermissions()
         registerListener()
+        initbStats()
 
         if (Config.getConfig().getBoolean("auto-update")) {val updater = Updater(this, 395393, this.file, Updater.UpdateType.DEFAULT, true)}
 
@@ -68,6 +71,10 @@ class SimpleWarp : JavaPlugin() {
             pluginManager.registerEvents(PlayerJoinListener(), this)
             Bukkit.getLogger().log(Level.INFO, "The Following default permissions will be set for each player: ${PermissionFile.getFile().getList("DefaultPermissions")}")
         }
+    }
+
+    private fun initbStats() {
+        val metrics: Metrics = Metrics(this, pluginId)
     }
 
     private fun initConfig() {
