@@ -14,9 +14,12 @@ The plugin also features an auto update System. This System downloads the newest
 
 
 The plugin now also features a "per-warp-permission System". 
-That means if you enable "RequirePermissionForEachWarp" in your Warps.yml Config, every Warp Point gets an individual Permission that follows this scheme: "simplewarp.warp.WARPNAME". 
+That means if you enable `RequirePermissionForEachWarp` in your `Warps.yml` Config, every Warp Point gets an individual Permission that follows this scheme: `simplewarp.warp.WARPNAME`. 
 (You have to replace WARPNAME with the exact name of your warp point). Only players with the correct permissions can see and use the warp points.
 You can now set Default Warp Point permissions in the Permission.yml file. Note: Only simplewarp permissions can be set by default. Other Permissions in the Permission.yml file will be ignored. 
+
+The new Integrated Permission Manager allows you to manage SimpleWarp permissions without the need of an external Permission System. To use this, set `IntegratedPermissionSystem` in your `Warps.yml` to `true`
+Please note that only SimpleWarp permissions can be set via the integrated permission manager.
 
 [![CircleCI](https://circleci.com/gh/marylieh/SimpleWarpV3/tree/main.svg?style=shield)](https://circleci.com/gh/marylieh/SimpleWarpV3/tree/main)
 ## Commands
@@ -30,6 +33,10 @@ You can now set Default Warp Point permissions in the Permission.yml file. Note:
   * `positionName` - *Shows the coordinates of the position. If the position doesn't exist, the position will be set to your current location*
   * `del` - *Remove a position*
   * `list` - *Lists all available positions*
+* `/pm <add |remove | list>`
+  * `add` - *Adds a simplewarp permission to a given player*
+  * `remove` - *Removes a simplewarp permission from a given player*
+  * `list` - *List all simplewarp permissions from a given player*
 
 ## Permissions
 
@@ -42,6 +49,7 @@ You can now set Default Warp Point permissions in the Permission.yml file. Note:
 * `simplewarp.position.create` - Allows you to use the **/position \<name>**
 * `simplewarp.position.del` - Allows you to use the **/position del \<name>**
 * `simplewarp.position.list` - Allows you to use the **/position list**
+* `simplewarp.permissionmanager` - Allows you to use the **/pm** command
 
 *To give the permissions to players you need a Permission System like [LuckPerms](https://luckperms.net/).*
 

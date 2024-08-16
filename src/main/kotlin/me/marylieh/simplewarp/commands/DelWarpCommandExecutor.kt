@@ -27,7 +27,7 @@ class DelWarpCommandExecutor : CommandExecutor {
                 player.sendMessage("${SimpleWarp.instance.prefix} §aThe Warp §6 $id §a was successfully deleted!")
 
             } else {
-                player.sendMessage("${SimpleWarp.instance.prefix} §cPleas use: §7/warp <warpname>")
+                player.sendMessage("${SimpleWarp.instance.prefix} §cPlease use: §7/warp <warpname>")
             }
         } else {
             player.sendMessage("${SimpleWarp.instance.prefix} §cYou don't have the permission to do that!")
