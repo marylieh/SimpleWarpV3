@@ -14,7 +14,7 @@ import java.util.logging.Level
 class SimpleWarp : JavaPlugin() {
 
     val prefix = "§6[SimpleWarp]"
-    val version = "R-3.9"
+    val version = "R-4.0"
     private val pluginId: Int = 20196
 
     companion object {
@@ -57,12 +57,14 @@ class SimpleWarp : JavaPlugin() {
         val warpsCommand = getCommand("warps") ?: error("Couldn't get warps command! This should not happen!")
         val warpVersionCommand = getCommand("warpversion") ?: error("Couldn't get warpversion command! This should not happen!")
         val positionCommand = getCommand("position") ?: error("Couldn't get position command! This should not happen!")
+        val permissionManagerCommand = getCommand("pm") ?: error("Couldn't get permissions manager command! This should not happen!")
         setWarpCommand.setExecutor(SetWarpCommandExecutor())
         delWarpCommand.setExecutor(DelWarpCommandExecutor())
         warpCommand.setExecutor(WarpCommandExecutor())
         warpsCommand.setExecutor(WarpsCommandExecutor())
         warpVersionCommand.setExecutor(WarpVersionCommandExecutor())
         positionCommand.setExecutor(PositionCommandExecutor())
+        permissionManagerCommand.setExecutor(PermissionManagerCommandExecutor())
         warpCommand.setTabCompleter(WarpTabCompleter())
         delWarpCommand.setTabCompleter(WarpTabCompleter())
     }
@@ -73,6 +75,11 @@ class SimpleWarp : JavaPlugin() {
         if (Config.getConfig().getBoolean("DefaultPermissions")) {
             pluginManager.registerEvents(PlayerJoinListener(), this)
             Bukkit.getLogger().log(Level.INFO, "The Following default permissions will be set for each player: ${PermissionFile.getFile().getList("DefaultPermissions")}")
+        }
+
+        if (Config.getConfig().getBoolean("IntegratedPermissionSystem")) {
+            pluginManager.registerEvents(PlayerJoinListener(), this)
+            Bukkit.getLogger().log(Level.INFO, "The integrated permission system has been enabled. That means you can use the /pm command as OP to give permissions to your players. This only works if the permission you are trying to add is a simplewarp permission.")
         }
     }
 
@@ -88,6 +95,9 @@ class SimpleWarp : JavaPlugin() {
         }
         if (Config.getConfig().get("DefaultPermissions") == null) {
             Config.getConfig().set("DefaultPermissions", false)
+        }
+        if (Config.getConfig().get("IntegratedPermissionSystem") == null) {
+            Config.getConfig().set("IntegratedPermissionSystem", false)
         }
         Config.save()
     }
