@@ -15,14 +15,14 @@ group = "me.marylieh.simplewarp"
 version = "1.0.0"
 
 repositories {
-    maven(url = "https://papermc.io/repo/repository/maven-public/")
+    maven(url = "https://repo.papermc.io/repository/maven-public/")
 }
 
 val minecraft_version: String by project
 
 dependencies {
     // PaperMC Dependency
-    compileOnly("com.destroystokyo.paper", "paper-api", "$minecraft_version-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper", "paper-api", "$minecraft_version-R0.1-SNAPSHOT")
 
     // Add your dependencies here
     implementation("org.bstats", "bstats-bukkit", "3.0.2")
