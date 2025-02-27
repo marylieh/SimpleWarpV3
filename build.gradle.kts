@@ -1,4 +1,4 @@
-import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
 import org.apache.commons.io.output.ByteArrayOutputStream
 import org.apache.tools.ant.filters.FixCrLfFilter
 import org.apache.tools.ant.filters.ReplaceTokens
@@ -8,6 +8,7 @@ plugins {
     kotlin("jvm") version "1.5.10"
     id("com.github.johnrengelman.shadow") version "7.0.0"
     id("com.github.gmazzo.buildconfig") version "3.0.0"
+    id ("org.sonarqube") version "6.0.1.5171"
 }
 
 group = "me.marylieh.simplewarp"
@@ -57,6 +58,14 @@ fun getGitBranch(): String {
 configure<SourceSetContainer> {
     named("main") {
         java.srcDir("src/main/kotlin")
+    }
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "md-public_simplewarpv3_48609fad-d1cc-4cee-93c0-cc7a3c13bbec")
+        property("sonar.projectName", "SimpleWarpV3")
+        property("sonar.qualitygate.wait", true)
     }
 }
 
