@@ -23,7 +23,6 @@ class SimpleWarp : JavaPlugin() {
     }
 
     override fun onLoad() {
-        Config.Config()
         PermissionFile.Permission()
         instance = this
     }
@@ -84,21 +83,20 @@ class SimpleWarp : JavaPlugin() {
     }
 
     private fun initConfig() {
-        if (Config.getConfig().get("PositionSystem") == null) {
-            Config.getConfig().set("PositionSystem", false)}
-        if (Config.getConfig().get("auto-update") == null) {
-            Config.getConfig().set("auto-update", true)}
-        if (Config.getConfig().get("PlayerWarpsOnly") == null) {
-            Config.getConfig().set("PlayerWarpsOnly", false)}
-        if (Config.getConfig().get("RequirePermissionForEachWarp") == null) {
-            Config.getConfig().set("RequirePermissionForEachWarp", false)
+
+        listOf(
+            "PositionSystem" to false,
+            "auto-update" to true,
+            "PlayerWarpsOnly" to false,
+            "RequirePermissionForEachWarp" to false,
+            "DefaultPermissions" to false,
+            "IntegratedPermissionSystem" to false
+        ).forEach { (key, defaultValue) ->
+            if (!config.contains(key)) {
+                config.set(key, defaultValue)
+            }
         }
-        if (Config.getConfig().get("DefaultPermissions") == null) {
-            Config.getConfig().set("DefaultPermissions", false)
-        }
-        if (Config.getConfig().get("IntegratedPermissionSystem") == null) {
-            Config.getConfig().set("IntegratedPermissionSystem", false)
-        }
+
         Config.save()
     }
 

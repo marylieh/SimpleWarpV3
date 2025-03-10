@@ -7,11 +7,11 @@ import java.io.IOException
 
 object Config {
 
-    private lateinit var file: File
-    private lateinit var config: YamlConfiguration
+    private val file: File
+    private val config: YamlConfiguration
 
-    fun Config() {
-        var dir: File = File("./plugins/SimpleWarp")
+    init {
+        val dir = File("./plugins/SimpleWarp")
 
         if (!dir.exists()) {
             dir.mkdirs()
@@ -30,9 +30,7 @@ object Config {
         config = YamlConfiguration.loadConfiguration(file)
     }
 
-    fun getConfig(): YamlConfiguration {
-        return config
-    }
+    fun getConfig(): YamlConfiguration = config
 
     fun save() {
         try {
