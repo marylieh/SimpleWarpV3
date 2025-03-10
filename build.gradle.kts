@@ -18,14 +18,15 @@ repositories {
     maven(url = "https://repo.papermc.io/repository/maven-public/")
 }
 
-val minecraft_version: String by project
+val minecraftVersion: String by project
+val bstatsVersion: String by project
 
 dependencies {
     // PaperMC Dependency
-    compileOnly("io.papermc.paper", "paper-api", "$minecraft_version-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper", "paper-api", "$minecraftVersion-R0.1-SNAPSHOT")
 
     // Add your dependencies here
-    implementation("org.bstats", "bstats-bukkit", "3.0.2")
+    implementation("org.bstats", "bstats-bukkit", bstatsVersion)
 }
 
 buildConfig {
