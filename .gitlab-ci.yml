@@ -1,17 +1,17 @@
-image: gradle:7.0.2-jdk16
-
-variables:
-  SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
-  GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
-
 stages:
-  - build-sonar
+  - analyze
+  - build
+  - test
 
-
-build-sonar:
-  stage: build-sonar
+sonar-analyze:
+  stage: analyze
+  image: gradle:7.0.2-jdk16
   tags:
     - kubernetes
+
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
+    GIT_DEPTH: "0"
 
   cache:
     policy: pull-push
@@ -27,3 +27,23 @@ build-sonar:
     - if: $CI_COMMIT_BRANCH == 'master'
     - if: $CI_COMMIT_BRANCH == 'main'
     - if: $CI_COMMIT_BRANCH == 'develop'
+
+build:
+  stage: build
+  image: cimg/openjdk:16.0.2
+  tags:
+    - kubernetes
+  script:
+    - gradle build
+  artifacts:
+    paths:
+      - build/libs/*
+    expire_in: 1 week
+
+test:
+  stage: test
+  image: cimg/openjdk:16.0.2
+  tags:
+    - kubernetes
+  script:
+    - gradle test
