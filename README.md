@@ -21,7 +21,7 @@ You can now set Default Warp Point permissions in the Permission.yml file. Note:
 The new Integrated Permission Manager allows you to manage SimpleWarp permissions without the need of an external Permission System. To use this, set `IntegratedPermissionSystem` in your `Warps.yml` to `true`
 Please note that only SimpleWarp permissions can be set via the integrated permission manager.
 
-[![CircleCI](https://circleci.com/gh/marylieh/SimpleWarpV3/tree/main.svg?style=shield)](https://circleci.com/gh/marylieh/SimpleWarpV3/tree/main)
+![CircleCI](https://gitlab.marylieh.social/md-public/simplewarpv3/badges/main/pipeline.svg)
 ## Commands
 
 * `/warp <warpname>` - *Teleport you to a warppoint.*
