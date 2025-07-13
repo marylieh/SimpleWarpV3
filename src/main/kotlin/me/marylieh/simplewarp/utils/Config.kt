@@ -1,6 +1,5 @@
 package me.marylieh.simplewarp.utils
 
-import org.bukkit.configuration.InvalidConfigurationException
 import org.bukkit.configuration.file.YamlConfiguration
 import java.io.File
 import java.io.IOException
@@ -40,13 +39,4 @@ object Config {
         }
     }
 
-    fun reload() {
-        try {
-            config.load(file)
-        } catch (e: IOException) {
-            e.printStackTrace()
-        } catch (e: InvalidConfigurationException) {
-            e.printStackTrace()
-        }
-    }
 }

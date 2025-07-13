@@ -19,6 +19,7 @@ object PermissionManager {
             Config.save()
         }
 
+        @Suppress("UNCHECKED_CAST")
         val validPerms = Config.getConfig().getList("IntegratedPermissions.${player.uniqueId}.permissions") as MutableList<String>
         validPerms.add(permission)
         Config.getConfig().set("IntegratedPermissions.${player.uniqueId}.permissions", validPerms)
@@ -29,6 +30,7 @@ object PermissionManager {
         if (Config.getConfig().get("IntegratedPermissions.${player.uniqueId}.permissions") == null) {
             return
         }
+        @Suppress("UNCHECKED_CAST")
         val perms = Config.getConfig().getList("IntegratedPermissions.${player.uniqueId}.permissions") as MutableList<String>
         perms.remove(permission)
         Config.getConfig().set("IntegratedPermissions.${player.uniqueId}.permissions", perms)
@@ -44,6 +46,7 @@ object PermissionManager {
             return listOf("every permission because player is OP")
         }
 
+        @Suppress("UNCHECKED_CAST")
         val permissions = Config.getConfig().getList("IntegratedPermissions.${player.uniqueId}.permissions") as List<String>
 
         return permissions
