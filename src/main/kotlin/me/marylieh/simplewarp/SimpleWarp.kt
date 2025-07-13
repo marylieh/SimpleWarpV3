@@ -14,7 +14,7 @@ import java.util.logging.Level
 class SimpleWarp : JavaPlugin() {
 
     val prefix = "§6[SimpleWarp]"
-    val version = "R-4.0"
+    val version = "R-4.1"
     private val pluginId: Int = 20196
 
     companion object {
@@ -23,7 +23,7 @@ class SimpleWarp : JavaPlugin() {
     }
 
     override fun onLoad() {
-        PermissionFile.Permission()
+        PermissionFile.permission()
         instance = this
     }
 
@@ -34,9 +34,11 @@ class SimpleWarp : JavaPlugin() {
         registerListener()
 
         // Initialize Auto Updater
+        @Suppress("UNUSED_VARIABLE")
         if (Config.getConfig().getBoolean("auto-update")) {val updater = Updater(this, 395393, this.file, Updater.UpdateType.DEFAULT, true)}
 
         // Initialize bstats Metrics
+        @Suppress("UNUSED_VARIABLE")
         val metrics = Metrics(this, pluginId)
 
         if (Bukkit.getOnlinePlayers().isNotEmpty()) {
@@ -64,21 +66,23 @@ class SimpleWarp : JavaPlugin() {
         warpVersionCommand.setExecutor(WarpVersionCommandExecutor())
         positionCommand.setExecutor(PositionCommandExecutor())
         permissionManagerCommand.setExecutor(PermissionManagerCommandExecutor())
-        warpCommand.setTabCompleter(WarpTabCompleter())
-        delWarpCommand.setTabCompleter(WarpTabCompleter())
+        warpCommand.tabCompleter = WarpTabCompleter()
+        delWarpCommand.tabCompleter = WarpTabCompleter()
     }
 
     private fun registerListener() {
         val pluginManager = Bukkit.getPluginManager()
 
         if (Config.getConfig().getBoolean("DefaultPermissions")) {
-            pluginManager.registerEvents(PlayerJoinListener(), this)
             Bukkit.getLogger().log(Level.INFO, "The Following default permissions will be set for each player: ${PermissionFile.getFile().getList("DefaultPermissions")}")
         }
 
         if (Config.getConfig().getBoolean("IntegratedPermissionSystem")) {
-            pluginManager.registerEvents(PlayerJoinListener(), this)
             Bukkit.getLogger().log(Level.INFO, "The integrated permission system has been enabled. That means you can use the /pm command as OP to give permissions to your players. This only works if the permission you are trying to add is a simplewarp permission.")
+        }
+
+        if (Config.getConfig().getBoolean("DefaultPermissions") || Config.getConfig().getBoolean("IntegratedPermissionSystem")) {
+            pluginManager.registerEvents(PlayerJoinListener(), this)
         }
     }
 
