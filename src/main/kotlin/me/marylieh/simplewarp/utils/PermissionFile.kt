@@ -9,8 +9,8 @@ object PermissionFile {
     private lateinit var file: File
     private lateinit var permission: YamlConfiguration
 
-    fun Permission() {
-        var dir: File = File("./plugins/SimpleWarp")
+    fun permission() {
+        val dir = File("./plugins/SimpleWarp")
 
         if (!dir.exists()) {
             dir.mkdirs()

@@ -3,7 +3,7 @@ api-version: 1.16
 authors:
   - Marylieh
 main: me.marylieh.simplewarp.SimpleWarp
-version: 4.0
+version: 4.1
 
 commands:
   setwarp:
