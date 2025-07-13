@@ -87,6 +87,7 @@ class SimpleWarp : JavaPlugin() {
     }
 
     private fun initConfig() {
+        val config = Config.getConfig()
 
         listOf(
             "PositionSystem" to false,
