@@ -2,10 +2,57 @@
 <verification-metadata xmlns="https://schema.gradle.org/dependency-verification" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://schema.gradle.org/dependency-verification https://schema.gradle.org/dependency-verification/dependency-verification-1.0.xsd">
    <configuration>
       <verify-metadata>true</verify-metadata>
-      <verify-signatures>false</verify-signatures>
-       <trusted-artifacts>
-           <trust group="io.papermc.paper"/>
-       </trusted-artifacts>
+      <verify-signatures>true</verify-signatures>
+      <trusted-artifacts>
+         <trust group="io.papermc.paper"/>
+      </trusted-artifacts>
+      <trusted-keys>
+         <trusted-key id="120d6f34e627ed3a772ebbfe55c7e5e701832382" group="org.yaml" name="snakeyaml" version="1.28"/>
+         <trusted-key id="190d5a957ff22273e601f7a7c92c5fec70161c62" group="^org[.]apache($|([.].*))" regex="true"/>
+         <trusted-key id="19beab2d799c020f17c69126b16698a4adf4d638" group="org.checkerframework" name="checker-qual" version="3.18.0"/>
+         <trusted-key id="2b1042677fd8190c7b9fc0dc2161d72e7dcd4258" group="^org[.]sonarsource($|([.].*))" regex="true"/>
+         <trusted-key id="2db4f1ef0fa761ecc4ea935c86fdc7e2a11262cb">
+            <trusting group="commons-io"/>
+            <trusting group="org.apache.commons"/>
+            <trusting group="commons-codec"/>
+         </trusted-key>
+         <trusted-key id="2e3a1affe42b5f53af19f780bcf4173966770193" group="org.jetbrains" name="annotations" version="13.0"/>
+         <trusted-key id="33fd4bfd33554634053d73c0c2148900bcd3c2af" group="org.jetbrains" name="annotations" version="22.0.0"/>
+         <trusted-key id="396d950bd2756e175ebe1453efdbce7a1ea0d252" group="net.md-5"/>
+         <trusted-key id="4103f9a48267e62ce33eb33788aa1fee831a7e89" group="junit" name="junit" version="4.10"/>
+         <trusted-key id="43e32d4fb2513be5c51ca5e51fe560632b289075" group="net.kyori"/>
+         <trusted-key id="475f3b8e59e6e63aa78067482c7b12f2a511e325" group="org.slf4j"/>
+         <trusted-key id="53c935821aa6a755bd337db53595395eb3d8e1ba" group="org.apache.logging.log4j"/>
+         <trusted-key id="55e770230e69cc6de143fb5b62c82e50836eb3ee" group="com.github.gundy" name="semver4j" version="0.16.4"/>
+         <trusted-key id="5897253bea3046aeea95a067e93671c7272b7b3f" group="org.jdom" name="jdom2" version="2.0.6"/>
+         <trusted-key id="60200ac4ae761f1614d6c46766d68daa073be985" group="org.slf4j"/>
+         <trusted-key id="682f765eea718d250bbdb2f1685c46769dbb5e5d" group="com.squareup" name="kotlinpoet" version="1.0.1"/>
+         <trusted-key id="694621a7227d8d5289699830abe9f3126bb741c1" group="com.google.guava"/>
+         <trusted-key id="6f538074ccebf35f28af9b066a0975f8b1127b83" group="org.jetbrains.kotlin"/>
+         <trusted-key id="79156e0351af8604de9b186b09a79e1e15a04694" group="org.vafer" name="jdependency" version="2.6.0"/>
+         <trusted-key id="7b121b76a7ed6ce6e60ad51784e913a8e3a748c0" group="org.bouncycastle" name="bcprov-jdk18on" version="1.78.1"/>
+         <trusted-key id="8254180bfc943b816e0b5e2e5e2f2b3d474efe6b" group="it.unimi.dsi" name="fastutil" version="8.2.2"/>
+         <trusted-key id="84789d24df77a32433ce1f079eb80e92eb2135b1" group="org.apache" name="apache"/>
+         <trusted-key id="8756c4f765c9ac3cb6b85d62379ce192d401ab61" group="^org[.]jetbrains($|([.].*))" regex="true"/>
+         <trusted-key id="a5bd02b93e7a40482eb1d66a5f69ad087600b22c" group="org.ow2.asm"/>
+         <trusted-key id="a6d6c97108b8585f91b158748671a8df71296252" group="com.squareup" name="javapoet" version="1.11.1"/>
+         <trusted-key id="afcc4c7594d09e2182c60e0f7a01b0f236e5430f" group="com.google.code.gson"/>
+         <trusted-key id="b1dcb69dfbad15dfc6214c44717134bda955e8f3" group="com.googlecode.json-simple" name="json-simple" version="1.1.1"/>
+         <trusted-key id="b6e73d84ea4fcc47166087253faad2cd5ecbb314" group="org.apache.commons"/>
+         <trusted-key id="c7be5bcc9fec15518cfda882b0f3710fa64900e7" group="com.google.code.gson"/>
+         <trusted-key id="cda887b4a2b0a046ffec4fcf43018d1939269023" group="org.bstats"/>
+         <trusted-key id="ce8075a251547bee249bc151a2115ae15f6b8b72" group="org.apache.ant"/>
+         <trusted-key id="d196a5e3e70732eeb2e5007f1861c322c56014b2" group="commons-lang" name="commons-lang" version="2.6"/>
+         <trusted-key id="dbd744ace7ade6aa50dd591f66b50994442d2d40" group="^com[.]squareup($|([.].*))" regex="true"/>
+         <trusted-key id="e5138a8e9f2e7e42d38b14d99aee152cdccebfcb" group="io.github.hakky54"/>
+         <trusted-key id="ee0ca873074092f806f59b65d364abaa39a47320" group="com.google.errorprone"/>
+         <trusted-key id="f254b35617dc255d9344bcfa873a8e86b4372146" group="org.apache.maven"/>
+         <trusted-key id="fa77dcfef2ee6eb2debedd2c012579464d01c06a">
+            <trusting group="org.apache"/>
+            <trusting group="org.codehaus.plexus"/>
+         </trusted-key>
+         <trusted-key id="ff6e2c001948c5f2f38b0cc385911f425ec61b51" group="org.junit" name="junit-bom"/>
+      </trusted-keys>
    </configuration>
    <components>
       <component group="com.github.gmazzo" name="gradle-buildconfig-plugin" version="3.0.0">
@@ -196,9 +243,13 @@
       </component>
       <component group="de.undercouch" name="gradle-download-task" version="4.1.1">
          <artifact name="gradle-download-task-4.1.1.jar">
+            <pgp value="1fa37fbe4453c1073e7ef61d6449005f96bc97a3"/>
             <sha256 value="eb08b570e408d4646705e70a949614d439ea2b11455f1652ab0330de8954dab9" origin="Generated by Gradle"/>
          </artifact>
          <artifact name="gradle-download-task-4.1.1.pom">
+            <ignored-keys>
+               <ignored-key id="1fa37fbe4453c1073e7ef61d6449005f96bc97a3" reason="PGP verification failed"/>
+            </ignored-keys>
             <sha256 value="1109f1f71a54254d590337d8b9d443f9dfc08728c9c1d8335655cc1dcc88c0b9" origin="Generated by Gradle"/>
          </artifact>
       </component>
@@ -232,8 +283,6 @@
          <artifact name="paper-api-1.17.1-R0.1-SNAPSHOT.jar">
             <sha256 value="f14a166ca4514e9d8050cf064dad80f5299c406129e58456ff786e7a6afa2493" origin="Generated by Gradle"/>
          </artifact>
-      </component>
-      <component group="io.papermc.paper" name="paper-api" version="1.17.1-R0.1-SNAPSHOT">
          <artifact name="paper-api-1.17.1-R0.1-SNAPSHOT.module">
             <sha256 value="6855c69da3c118c35b13d7940b57e03fb41e236fca820c5c0d065c758909416f" origin="Generated by Gradle"/>
          </artifact>
@@ -360,6 +409,7 @@
       </component>
       <component group="org.apache" name="apache" version="7">
          <artifact name="apache-7.pom">
+            <pgp value="ba926f64ca647b6d853a38672e2010f8a7ff4a41"/>
             <sha256 value="1397ce1db433adc9f223dbf07496d133681448751f4ae29e58f68e78fb4b6c25" origin="Generated by Gradle"/>
          </artifact>
       </component>
@@ -407,6 +457,7 @@
       </component>
       <component group="org.apache.commons" name="commons-parent" version="17">
          <artifact name="commons-parent-17.pom">
+            <pgp value="d6f1bc78607808ec8e9f69437a8860944fad5f62"/>
             <sha256 value="96e718baf534874ee62ce4d42de265f2ddacd88391a540e030d59d98fa7c4408" origin="Generated by Gradle"/>
          </artifact>
       </component>
@@ -442,6 +493,7 @@
       </component>
       <component group="org.apache.logging" name="logging-parent" version="3">
          <artifact name="logging-parent-3.pom">
+            <pgp value="9d0a56aaa0d60e0c0c7dccc0b4c70893b62babe8"/>
             <sha256 value="763a2ec2b8094d4161deb6c264b1262085b9be30bf3a31c2ce137242e57722a7" origin="Generated by Gradle"/>
          </artifact>
       </component>
@@ -635,6 +687,9 @@
             <sha256 value="463c577467cbff0f6b5e81ec70f4f2d7705b81ba6cd196f5556f8c36e70ed947" origin="Generated by Gradle"/>
          </artifact>
          <artifact name="kotlin-gradle-plugin-1.5.10.pom">
+            <ignored-keys>
+               <ignored-key id="6f538074ccebf35f28af9b066a0975f8b1127b83" reason="PGP verification failed"/>
+            </ignored-keys>
             <sha256 value="105d142b1a368c8c228bf5aa606a4d5e44ca6a7b566ffc44d2c059e1b2b5dec9" origin="Generated by Gradle"/>
          </artifact>
       </component>
