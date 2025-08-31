@@ -1,5 +1,6 @@
 stages:
   - analyze
+  - check
   - build
   - test
 
@@ -47,3 +48,11 @@ test:
     - kubernetes
   script:
     - gradle test
+
+check:
+  stage: check
+  image: cimg/openjdk:16.0.2
+  tags:
+    - kubernetes
+  script:
+    - gradle check
