@@ -5,6 +5,7 @@
       <verify-signatures>true</verify-signatures>
       <trusted-artifacts>
          <trust group="io.papermc.paper"/>
+         <trust group="org.apache.logging.log4j"/>
       </trusted-artifacts>
       <trusted-keys>
          <trusted-key id="120d6f34e627ed3a772ebbfe55c7e5e701832382" group="org.yaml" name="snakeyaml" version="1.28"/>
