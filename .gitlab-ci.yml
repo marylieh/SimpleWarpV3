@@ -56,3 +56,7 @@ check:
     - kubernetes
   script:
     - gradle check
+  artifacts:
+    paths:
+      - build/reports/dependency-verification/*
+    expire_in: 1 week
