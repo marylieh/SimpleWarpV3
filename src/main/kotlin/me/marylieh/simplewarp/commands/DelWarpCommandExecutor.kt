@@ -1,7 +1,7 @@
 package me.marylieh.simplewarp.commands
 
 import me.marylieh.simplewarp.SimpleWarp
-import me.marylieh.simplewarp.utils.Config
+import me.marylieh.simplewarp.impl.WarpManager
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -21,8 +21,7 @@ class DelWarpCommandExecutor : CommandExecutor {
 
                 val id = args[0]
 
-                Config.getConfig().set(".Warps.$id", null)
-                Config.save()
+                WarpManager.deletePublicWarp(id)
 
                 player.sendMessage("${SimpleWarp.instance.prefix} §aThe Warp §6 $id §a was successfully deleted!")
 

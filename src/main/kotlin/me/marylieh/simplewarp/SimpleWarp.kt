@@ -14,7 +14,7 @@ import java.util.logging.Level
 class SimpleWarp : JavaPlugin() {
 
     val prefix = "§6[SimpleWarp]"
-    val version = "R-4.1"
+    val version = "R-4.2"
     private val pluginId: Int = 20196
 
     companion object {
@@ -59,6 +59,7 @@ class SimpleWarp : JavaPlugin() {
         val warpVersionCommand = getCommand("warpversion") ?: error("Couldn't get warpversion command! This should not happen!")
         val positionCommand = getCommand("position") ?: error("Couldn't get position command! This should not happen!")
         val permissionManagerCommand = getCommand("pm") ?: error("Couldn't get permissions manager command! This should not happen!")
+        val warpTypeCommand = getCommand("warptype") ?: error("Couldn't get warp type command! This should not happen!")
         setWarpCommand.setExecutor(SetWarpCommandExecutor())
         delWarpCommand.setExecutor(DelWarpCommandExecutor())
         warpCommand.setExecutor(WarpCommandExecutor())
@@ -66,6 +67,7 @@ class SimpleWarp : JavaPlugin() {
         warpVersionCommand.setExecutor(WarpVersionCommandExecutor())
         positionCommand.setExecutor(PositionCommandExecutor())
         permissionManagerCommand.setExecutor(PermissionManagerCommandExecutor())
+        warpTypeCommand.setExecutor(WarpTypeCommandExecutor())
         warpCommand.tabCompleter = WarpTabCompleter()
         delWarpCommand.tabCompleter = WarpTabCompleter()
     }
@@ -95,7 +97,8 @@ class SimpleWarp : JavaPlugin() {
             "PlayerWarpsOnly" to false,
             "RequirePermissionForEachWarp" to false,
             "DefaultPermissions" to false,
-            "IntegratedPermissionSystem" to false
+            "IntegratedPermissionSystem" to false,
+            "WarpTypePrivate" to false
         ).forEach { (key, defaultValue) ->
             if (!config.contains(key)) {
                 config.set(key, defaultValue)

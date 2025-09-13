@@ -1,6 +1,7 @@
 package me.marylieh.simplewarp.commands
 
 import me.marylieh.simplewarp.SimpleWarp
+import me.marylieh.simplewarp.impl.WarpManager
 import me.marylieh.simplewarp.utils.Config
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
@@ -35,19 +36,9 @@ class SetWarpCommandExecutor : CommandExecutor {
                 val yaw = player.location.yaw
                 val pitch = player.location.pitch
 
-                Config.getConfig().set(".Warps.${id}.World", world)
-                Config.getConfig().set(".Warps.${id}.X", x)
-                Config.getConfig().set(".Warps.${id}.Y", y)
-                Config.getConfig().set(".Warps.${id}.Z", z)
-
-                Config.getConfig().set(".Warps.${id}.Yaw", yaw)
-                Config.getConfig().set(".Warps.${id}.Pitch", pitch)
-
-                Config.getConfig().set(".Warps.${id}.Owner", player.uniqueId.toString())
+                WarpManager.createPublicWarp(id, player.uniqueId.toString(), world, x, y, z, yaw, pitch)
 
                 player.sendMessage("${SimpleWarp.instance.prefix} §aYou successfully set the Warp §6${id}§a!")
-
-                Config.save()
             } else {
                 player.sendMessage("${SimpleWarp.instance.prefix} §cPlease use: §7/setwarp <warpname>")
             }
